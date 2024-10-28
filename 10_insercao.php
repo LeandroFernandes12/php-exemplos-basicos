@@ -7,17 +7,17 @@
 <body>
     <form method="post" action="">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" required><br>
+        <input type="text" name="nome" id="nome" required><br>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
+        <input type="email" name="email" id="email" required><br>
 
         <button type="submit">Cadastrar</button>
     </form>
 
     <?php
     // Verifica se o formulário foi enviado
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Recebe os valores enviados pelo formulário
         $nome = $_POST['nome'];
         $email = $_POST['email'];
@@ -35,10 +35,17 @@
             die("Falha na conexão: " . $conn->connect_error);
         }
 
+        // Insere o registro no banco de dados
+        $sql = "INSERT INTO clientes (nome, email) VALUES ('$nome', '$email')";
 
-        // Digitar PHP + SQL (1º Aqui)
+        if ($conn->query($sql) === TRUE) {
+            echo "<p style='color: green;'>Cliente cadastrado com sucesso!</p>";
+        } else {
+            echo "<p style='color: red;'>Erro ao cadastrar: " . $conn->error . "</p>";
+        }
 
-
+        // Fecha a conexão
+        $conn->close();
     }
     ?>
 </body>
