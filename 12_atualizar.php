@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
 
+    // SQL de atualização
     $sql = "UPDATE clientes SET nome='$nome', email='$email' WHERE id='$id'";
 
     if ($conn->query($sql) === TRUE) {

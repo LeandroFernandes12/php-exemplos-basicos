@@ -1,2 +1,4 @@
 bizarro;scpooky
 demonio;666
+demonio;666
+paulo;1234

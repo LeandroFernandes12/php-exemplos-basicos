@@ -26,9 +26,20 @@
         $email = $_POST['email'];
         $mensagem = $_POST['mensagem'];
 
+        // $arquivo = fopen('mensagem.txt', 'a');
+
+        // // Registra as informações de nome, email e mensagem em um arquivo .txt
+        // $linha = $nome . ';' . $email . ';' . $mensagem . "\n";
+
+        // // Escreve a linha no arquivo
+        // fwrite($arquivo, $linha);
+
+        // // Fecha o arquivo
+        // fclose($arquivo);
+
         // Valida se os campos não estão vazios e o email é válido
         if (!empty($nome) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($mensagem)) {
-            echo "<p style='color: green;'>Feedback enviado com sucesso!</p>";
+            echo "<p style='color: darkgreen;'>Feedback enviado com sucesso!</p>";
         } else {
             echo "<p style='color: red;'>Por favor, preencha todos os campos corretamente.</p>";
         }

@@ -20,6 +20,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     echo "<table border='1'>";
     echo "<tr><th>ID</th><th>Nome</th><th>Email</th></tr>";
+
+    //fetch_assoc() - método que retorna em linha informações associadas a outra informação (id, nome, email).
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
