@@ -15,14 +15,21 @@
 <?php
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Caminho onde as imagens serão salvas 
     $diretorio_destino = 'uploads/';
+
 
     // Verifica se a pasta existe, caso não, cria a pasta
     if (!is_dir($diretorio_destino)) {
+        // Criar a pasta (Diretório) com permissões de acesso total (codigo 0777) e possibilidade 
+        // de subdiretórios (opção true)
         mkdir($diretorio_destino, 0777, true);
     }
 
+    // Armazena apenas o nome base do arquivo (Ex. foto.jpg)
     $nome_arquivo = basename($_FILES['imagem']['name']);
+
+    // Constroi o caminho completo (Ex. uploads/foto.jpg)
     $caminho_completo = $diretorio_destino . $nome_arquivo;
 
     // Move o arquivo enviado para o diretório de destino

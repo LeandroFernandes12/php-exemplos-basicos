@@ -9,10 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Verifica se os dados são válidos (usuário: admin, senha: 123)
     if ($usuario == 'admin' && $senha == '123') {
+        // Se sim (Salva o nome do usuário)
         $_SESSION['usuario'] = $usuario; // Salva o nome do usuário na sessão
+
+        // Redireciona para a página (Restrita)
         header("Location: 15b_restrita.php");
         exit();
+
     } else {
+
+        // Senão (Informa o usuário do problema)
         $erro = "Usuário ou senha incorretos.";
     }
 }
